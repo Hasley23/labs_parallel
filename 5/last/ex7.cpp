@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <omp.h>
+
+int main()
+{
+	int k, N;
+    int sum = 0;
+
+    scanf("%d%d", &k, &N);
+
+	#pragma omp parallel num_threads(k) reduction(+: sum)
+	{
+        // #pragma omp for schedule (static)
+		// #pragma omp for schedule(static, 1)
+		// #pragma omp for schedule(static, 2)
+		// #pragma omp for schedule (dynamic)
+		// #pragma omp for schedule (dynamic, 2)
+		// #pragma omp for schedule (guided)
+		#pragma omp for schedule (guided, 2)
+		for (int i = 1; i <= N; ++i)
+        {
+			sum += i;
+            printf("[%d]: calculation of the iteration number %d\n", omp_get_thread_num(), i);
+        }
+		printf("[%d]: Sum = %d\n", omp_get_thread_num(), sum);
+	}
+    printf("Sum = %d\n", sum);
+}

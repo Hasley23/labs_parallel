@@ -1,0 +1,17 @@
+Управление потоками
+export OMP_NUM_THREADS=6
+
+программа для потоков
+g++ any_serial_prog.c -fopenmp
+
+примеры
+g++ ex1.c -fopenmp                 - OpenMP is supported!
+g++ ex2.c -fopenmp                 - время на замер времени
+
+версия OpenMP
+g++ ver.cpp -fopenmp               - Информация о версии OpenMP | 201511 - Open MP 4.5
+
+время работы omp_get_wtick()
+g++ get_wtick_time.cpp -fopenmp    - миллиардные доли 
+
+dell g5 15 5587 - 6 ядер 12 потоков

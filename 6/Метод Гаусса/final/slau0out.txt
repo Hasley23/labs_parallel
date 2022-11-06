@@ -1,0 +1,9 @@
+Numerical mathematics
+Gauss method for systems of linear equations.
+System:
+       1       2       3 |        3
+       3       5       7 |        0
+       1       3       4 |        1
+Roots:
+      -4     -13      11
+Finished.
